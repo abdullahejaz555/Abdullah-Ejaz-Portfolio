@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah Ejaz — Marketing Systems & Automation</title>
+<meta name="description" content="100+ funnels, websites and marketing systems across GoHighLevel, WordPress, ClickFunnels — HubSpot migrations, automation and tracking.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & VARS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#05070f;--bg2:#090c18;--panel:#0f1220;--panel2:#13162a;
+  --line:rgba(255,255,255,0.07);--line2:rgba(255,255,255,0.04);
+  --white:#eceff8;--grey:#7e8aaa;--dim:#3a4060;
+  --lime:#b8ff4a;--blue:#4a8fff;--purple:#9b6bff;--wa:#22c55e;
+  --r:16px;--r2:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+::selection{background:var(--lime);color:#05070f}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#1e2238;border-radius:4px}
+
+/* ── CURSOR ── */
+#cr{position:fixed;width:10px;height:10px;background:var(--lime);border-radius:50%;pointer-events:none;z-index:9999;top:0;left:0;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+#cr-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(184,255,74,.45);border-radius:50%;pointer-events:none;z-index:9998;top:0;left:0;transform:translate(-50%,-50%)}
+.cr-big #cr{width:18px;height:18px}
+.cr-big #cr-ring{width:56px;height:56px;border-color:rgba(184,255,74,.2)}
+
+/* ── SCROLL BAR ── */
+#spbar{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--lime),var(--blue));z-index:300;transition:width .08s linear}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 1.75rem}
+section{padding:6rem 0;position:relative}
+h2{font-size:clamp(1.85rem,3.6vw,2.9rem);font-weight:800;line-height:1.1;letter-spacing:-.04em;margin-bottom:.8rem}
+h2 em{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;color:var(--lime)}
+.lead{font-size:1rem;color:var(--grey);max-width:52ch;line-height:1.8}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:1.25rem}
+.eyebrow::before{content:'';width:1.1rem;height:1px;background:var(--lime)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 1.85rem;border-radius:999px;font-family:inherit;font-size:.88rem;font-weight:700;text-decoration:none;border:none;cursor:none;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-lime{background:var(--lime);color:#05070f}.btn-lime:hover{box-shadow:0 14px 40px -10px rgba(184,255,74,.6)}
+.btn-ghost{border:1px solid rgba(255,255,255,.13);color:var(--white);background:rgba(255,255,255,.02)}.btn-ghost:hover{border-color:rgba(255,255,255,.35)}
+.btn svg{width:17px;height:17px;flex-shrink:0}
+
+/* ── NAV ── */
+nav{position:fixed;inset:0 0 auto 0;z-index:200;padding:.8rem 0;transition:background .35s,border .35s}
+nav.solid{background:rgba(5,7,15,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--line2)}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 1.75rem;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.98rem;text-decoration:none;color:var(--white)}
+.logo-mark{width:31px;height:31px;border-radius:8px;background:var(--lime);color:#05070f;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:900;transition:transform .3s}
+.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.1)}
+.nav-links{display:flex;align-items:center;gap:1.7rem}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--grey);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--lime);transition:width .28s}
+.nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+.nav-cta{background:rgba(184,255,74,.08);border:1px solid rgba(184,255,74,.22);color:var(--lime);padding:.45rem 1.1rem;border-radius:999px;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .22s;cursor:none}
+.nav-cta:hover{background:var(--lime);color:#05070f}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 0 3rem;overflow:hidden;position:relative}
+#bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center;width:100%}
+.avail{display:inline-flex;align-items:center;gap:.48rem;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);border-radius:999px;padding:.33rem .88rem;font-size:.73rem;color:#86efac;margin-bottom:1.6rem}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:var(--wa);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{opacity:.4;box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+h1{font-size:clamp(2.6rem,5.5vw,5rem);font-weight:900;line-height:.98;letter-spacing:-.05em;margin-bottom:1.4rem}
+.h1-mask{display:block;overflow:hidden;line-height:1.08}
+.h1-inner{display:block;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.h1-mask:nth-child(2) .h1-inner{font-family:'DM Serif Display',serif;font-weight:400;font-style:italic;letter-spacing:-.02em;color:var(--lime);transition-delay:.1s}
+.h1-mask:nth-child(3) .h1-inner{transition-delay:.2s}
+.h1-ready .h1-inner{transform:translateY(0)}
+
+.hero-sub{font-size:1.02rem;color:var(--grey);max-width:42ch;line-height:1.78;margin-bottom:2rem;opacity:0;transform:translateY(18px);transition:opacity .7s .45s,transform .7s .45s}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;opacity:0;transform:translateY(18px);transition:opacity .7s .55s,transform .7s .55s}
+.trust{margin-top:2.2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(18px);transition:opacity .7s .65s,transform .7s .65s}
+.h1-ready ~ .hero-sub,.h1-ready ~ .hero-actions,.h1-ready ~ .trust{opacity:1;transform:translateY(0)}
+.trust-stars{color:var(--lime);font-size:.82rem;letter-spacing:1.5px}
+.trust-sep{width:1px;height:16px;background:var(--line)}
+.trust-txt{font-size:.77rem;color:var(--dim)}
+.hero-canvas-wrap{position:relative}
+#hero-funnel{display:block;width:100%;max-width:430px;margin:0 auto}
+
+/* ── MARQUEE ── */
+.mq-wrap{overflow:hidden;background:var(--bg2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:1.2rem 0;position:relative}
+.mq-wrap::before,.mq-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:1;pointer-events:none}
+.mq-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.mq-wrap::after{right:0;background:linear-gradient(-90deg,var(--bg2),transparent)}
+.mq-track{display:flex;gap:0;white-space:nowrap;animation:mq 30s linear infinite;width:max-content}
+.mq-track:hover{animation-play-state:paused}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq-item{display:inline-flex;align-items:center;gap:2.2rem;font-size:.9rem;font-weight:600;color:var(--dim);padding:0 2.2rem;transition:color .25s;cursor:default}
+.mq-item:hover{color:var(--lime)}
+.mq-item::after{content:'✦';font-size:.5rem;color:var(--lime);opacity:.5}
+
+/* ── PROBLEM ── */
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.prob-card{padding:1.7rem;background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.prob-card:hover{border-color:rgba(184,255,74,.22);transform:translateY(-5px)}
+.prob-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,255,74,0),rgba(184,255,74,.035));opacity:0;transition:opacity .35s}
+.prob-card:hover::before{opacity:1}
+.p-icon{width:40px;height:40px;border-radius:10px;background:rgba(184,255,74,.07);border:1px solid rgba(184,255,74,.14);display:flex;align-items:center;justify-content:center;margin-bottom:.95rem;transition:transform .3s,background .3s}
+.prob-card:hover .p-icon{transform:scale(1.1);background:rgba(184,255,74,.12)}
+.p-icon svg{width:19px;height:19px;stroke:var(--lime);fill:none;stroke-width:1.7}
+.prob-t{font-size:.97rem;font-weight:700;margin-bottom:.38rem}
+.prob-d{font-size:.82rem;color:var(--grey);line-height:1.65}
+.prob-footer{margin-top:2.5rem;padding:1.8rem 2rem;background:linear-gradient(130deg,rgba(184,255,74,.05),rgba(74,143,255,.03));border:1px solid rgba(184,255,74,.15);border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.prob-footer p{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,2.2vw,1.75rem);font-style:italic;color:var(--white);line-height:1.3}
+.prob-footer em{color:var(--lime);font-style:inherit}
+
+/* ── FUNNEL ── */
+.funnel-sec{background:var(--bg2)}
+.funnel-head{text-align:center;margin-bottom:3rem}
+.funnel-head .lead{margin:0 auto}
+.funnel-layout{display:grid;grid-template-columns:1fr 460px;gap:3rem;align-items:start}
+.funnel-canvas-wrap{position:relative;height:580px}
+#funnel3d{width:100%;height:100%;display:block}
+.stage-list{display:flex;flex-direction:column;gap:.8rem;padding-top:.5rem}
+.si{padding:1.25rem 1.35rem;background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);cursor:none;transition:border-color .3s,background .3s;position:relative;overflow:hidden}
+.si::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--lime),var(--blue));transform:scaleY(0);transform-origin:top;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.si.active,.si:hover{border-color:rgba(184,255,74,.2);background:var(--panel2)}
+.si.active::before,.si:hover::before{transform:scaleY(1)}
+.si-num{font-size:.64rem;font-weight:700;letter-spacing:.15em;color:var(--lime);margin-bottom:.28rem;text-transform:uppercase}
+.si-title{font-size:.92rem;font-weight:700;margin-bottom:.22rem}
+.si-desc{font-size:.8rem;color:var(--grey);line-height:1.6}
+.si-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem}
+.si-tag{background:rgba(184,255,74,.07);border:1px solid rgba(184,255,74,.15);color:var(--lime);font-size:.63rem;font-weight:600;padding:.16rem .52rem;border-radius:999px}
+
+/* ── SERVICES ── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.svc-card{padding:1.85rem 1.65rem;background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.svc-card.hot{background:linear-gradient(148deg,rgba(184,255,74,.06),rgba(5,7,15,.4));border-color:rgba(184,255,74,.2)}
+.svc-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.12)}
+.svc-sweep{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--blue),var(--purple));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.svc-card:hover .svc-sweep{transform:scaleX(1)}
+.svc-shine{position:absolute;inset:0;background:radial-gradient(circle at var(--sx,50%) var(--sy,50%),rgba(184,255,74,.05) 0%,transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.svc-card:hover .svc-shine{opacity:1}
+.svc-icon{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;transition:transform .3s,background .3s}
+.svc-card:hover .svc-icon{transform:scale(1.08) rotate(-4deg);background:rgba(184,255,74,.07)}
+.svc-icon svg{width:21px;height:21px;stroke:var(--lime);fill:none;stroke-width:1.5}
+.svc-badge{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#05070f;background:var(--lime);padding:.19rem .58rem;border-radius:999px;margin-bottom:.85rem}
+.svc-title{font-size:1.08rem;font-weight:700;margin-bottom:.42rem;letter-spacing:-.01em}
+.svc-desc{font-size:.82rem;color:var(--grey);line-height:1.65}
+
+/* ── METRICS ── */
+.metrics-band{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);overflow:hidden;position:relative}
+.metrics-band::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(184,255,74,.025) 50%,transparent 100%);animation:band-sweep 5s linear infinite}
+@keyframes band-sweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.metrics-inner{display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{padding:2.6rem 1rem;text-align:center;border-right:1px solid var(--line2);position:relative;transition:background .3s}
+.metric:last-child{border-right:none}
+.metric:hover{background:rgba(184,255,74,.015)}
+.met-num{font-size:2.9rem;font-weight:900;color:var(--white);line-height:1;letter-spacing:-.05em}
+.met-num .met-suf{color:var(--lime);font-size:1.6rem}
+.met-val{display:inline}
+.met-lbl{font-size:.76rem;color:var(--dim);margin-top:.4rem;line-height:1.4}
+.met-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--lime);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+
+/* ── WORK ── */
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2.5rem}
+.work-card{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r2);padding:1.25rem;text-decoration:none;display:flex;flex-direction:column;gap:.45rem;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.work-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,255,74,.04),rgba(74,143,255,.02));opacity:0;transition:opacity .28s}
+.work-card:hover{border-color:rgba(184,255,74,.28);transform:translateY(-4px) scale(1.01)}.work-card:hover::before{opacity:1}
+.wc-num{font-size:.62rem;font-weight:700;letter-spacing:.1em;color:var(--dim)}
+.wc-name{font-size:.88rem;font-weight:700;color:var(--white);display:flex;align-items:center;justify-content:space-between;gap:.4rem}
+.wc-arr{width:12px;height:12px;flex-shrink:0;stroke:var(--lime);fill:none;stroke-width:2;opacity:0;transform:translate(-4px,4px);transition:all .22s}
+.work-card:hover .wc-arr{opacity:1;transform:translate(0,0)}
+.wc-cat{font-size:.7rem;color:var(--lime)}
+
+/* ── MIGRATION ── */
+.mig-sec{background:var(--bg2)}
+.mig-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:2.5rem;align-items:start;margin-top:2.5rem}
+.mig-sticky{position:sticky;top:5.5rem;background:linear-gradient(148deg,rgba(184,255,74,.07),rgba(74,143,255,.03));border:1px solid rgba(184,255,74,.2);border-radius:var(--r);padding:2.2rem}
+.mig-big{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3.3vw,2.8rem);font-style:italic;color:var(--lime);line-height:1.1;margin-bottom:.85rem}
+.mig-p{color:var(--grey);font-size:.88rem;line-height:1.74}
+.mig-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.82rem}
+.mig-item{background:var(--panel);border:1px solid var(--line2);border-radius:var(--r2);padding:1.1rem;transition:border-color .28s,transform .28s;position:relative;overflow:hidden}
+.mig-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--lime);transform:scaleY(0);transform-origin:bottom;transition:transform .35s}
+.mig-item:hover{border-color:rgba(184,255,74,.2);transform:translateX(3px)}.mig-item:hover::before{transform:scaleY(1)}
+.mig-item b{display:block;font-size:.86rem;font-weight:700;margin-bottom:.22rem}
+.mig-item span{color:var(--grey);font-size:.77rem;line-height:1.5}
+
+/* ── PROCESS ── */
+.process-list{margin-top:2.5rem}
+.pi{display:grid;grid-template-columns:3rem 1fr auto;gap:1.5rem;align-items:center;padding:1.55rem 0;border-top:1px solid var(--line2);transition:padding-left .3s;position:relative}
+.pi:last-child{border-bottom:1px solid var(--line2)}
+.pi::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--lime);transform:scaleY(0);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pi:hover{padding-left:.75rem}.pi:hover::after{transform:scaleY(1)}
+.pi-n{font-family:'DM Serif Display',serif;font-size:2.3rem;color:var(--dim);transition:color .28s;line-height:1}
+.pi:hover .pi-n{color:var(--lime)}
+.pi-title{font-size:1.15rem;font-weight:700;margin-bottom:.2rem;letter-spacing:-.01em}
+.pi-desc{font-size:.85rem;color:var(--grey);max-width:52ch}
+.pi-tag{font-size:.7rem;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:.26rem .78rem;white-space:nowrap}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.testi-card{padding:1.85rem;background:var(--panel);border:1px solid var(--line2);border-radius:var(--r);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,255,74,.45),transparent);transform:translateX(-100%);transition:transform .55s}
+.testi-card:hover::before{transform:translateX(100%)}
+.testi-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.1)}
+.t-stars{color:var(--lime);font-size:.8rem;letter-spacing:2px;margin-bottom:.85rem}
+.t-quote{font-family:'DM Serif Display',serif;font-size:1.18rem;font-style:italic;line-height:1.5;color:var(--white);margin-bottom:1.35rem}
+.t-person{display:flex;align-items:center;gap:.65rem}
+.t-av{width:36px;height:36px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;color:var(--lime);flex-shrink:0}
+.t-name{font-weight:700;font-size:.83rem}
+.t-role{font-size:.73rem;color:var(--dim)}
+
+/* ── FAQ ── */
+.faq-sec{background:var(--bg2)}
+.faq-inner{max-width:710px;margin:2.5rem auto 0}
+.faq-item{border-top:1px solid var(--line2)}.faq-item:last-child{border-bottom:1px solid var(--line2)}
+.faq-q{width:100%;text-align:left;background:none;border:none;color:var(--white);font-family:inherit;font-size:1rem;font-weight:600;padding:1.35rem 2.4rem 1.35rem 0;cursor:none;display:flex;justify-content:space-between;align-items:center;transition:color .22s;gap:.8rem}
+.faq-q:hover{color:var(--lime)}
+.faq-ico{width:22px;height:22px;border-radius:50%;border:1px solid rgba(184,255,74,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .28s}
+.faq-ico svg{width:10px;height:10px;stroke:var(--lime);fill:none;stroke-width:2.5;transition:transform .28s}
+.faq-item.open .faq-ico{background:var(--lime);border-color:var(--lime)}
+.faq-item.open .faq-ico svg{stroke:#05070f;transform:rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.2,.8,.2,1)}
+.faq-body p{padding:0 0 1.35rem;color:var(--grey);font-size:.9rem;line-height:1.74;max-width:60ch}
+
+/* ── CTA ── */
+.cta-sec{padding:6rem 0}
+.cta-box{position:relative;border-radius:22px;padding:4.5rem 2.5rem;text-align:center;overflow:hidden;background:var(--panel);border:1px solid rgba(184,255,74,.12)}
+#cta-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cta-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,255,74,.07),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;animation:breathe 5s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+.cta-box > *:not(#cta-canvas):not(.cta-glow){position:relative;z-index:1}
+.cta-box h2{font-size:clamp(1.7rem,3.6vw,2.8rem);margin-bottom:1rem}
+.cta-box .lead{margin:0 auto 2.2rem}
+.cta-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.cta-note{margin-top:1.4rem;font-size:.76rem;color:var(--dim)}
+
+/* ── FAB ── */
+.fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:190;background:var(--wa);color:#052e12;border-radius:999px;padding:.82rem 1.25rem;font-weight:700;font-size:.82rem;text-decoration:none;display:inline-flex;align-items:center;gap:.45rem;box-shadow:0 10px 30px -8px rgba(34,197,94,.5);transition:transform .25s,box-shadow .25s;cursor:none}
+.fab:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 14px 40px -8px rgba(34,197,94,.6)}
+.fab svg{width:19px;height:19px;fill:currentColor}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);padding:2rem 0}
+.foot-row{max-width:1160px;margin:0 auto;padding:1.6rem 1.75rem 0;border-top:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.9rem}
+.foot-links{display:flex;gap:1.25rem;flex-wrap:wrap}
+.foot-links a{font-size:.78rem;color:var(--dim);text-decoration:none;transition:color .2s}.foot-links a:hover{color:var(--lime)}
+.foot-copy{font-size:.75rem;color:var(--dim)}
+
+/* ── SCROLL ANIMATIONS ── */
+.anim{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.anim.show{opacity:1;transform:none}
+
+/* ── 3D TILT ── */
+.tilt{transition:transform .12s linear,box-shadow .3s}
+.tilt:hover{box-shadow:0 18px 55px -18px rgba(0,0,0,.65)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-canvas-wrap,.hero-visual{display:none}
+  .funnel-layout{grid-template-columns:1fr}
+  .funnel-canvas-wrap{height:380px}
+  .svc-grid,.prob-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
+  .work-grid{grid-template-columns:repeat(3,1fr)}
+  .metrics-inner{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(2){border-right:none}
+  .metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--line2)}
+  .mig-layout{grid-template-columns:1fr}
+  .mig-sticky{position:static}
+  .mig-grid{grid-template-columns:1fr}
+  #cr,#cr-ring{display:none}
+  body{cursor:auto}
+  .btn,.fab,.faq-q,.nav-cta,.si,.work-card{cursor:pointer}
+}
+@media(max-width:640px){
+  section{padding:3.75rem 0}
+  .prob-grid,.svc-grid,.testi-grid{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .metrics-inner{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .cta-box{padding:3rem 1.25rem}
+  .prob-footer{flex-direction:column;text-align:center}
+  .pi{grid-template-columns:2.5rem 1fr}.pi-tag{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .anim{opacity:1!important;transform:none!important}
+  .h1-inner{transform:none!important}
+  #cr,#cr-ring{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="spbar"></div>
+<div id="cr"></div>
+<div id="cr-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="logo-mark">AE</span>Abdullah Ejaz</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#funnel">The System</a>
+      <a href="#work">Work</a>
+      <a href="#migration">Migration</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta wa-link">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <canvas id="bg-canvas"></canvas>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="avail"><span class="avail-dot"></span>Available now &middot; Replies within hours</div>
+      <h1 id="mainH1">
+        <span class="h1-mask"><span class="h1-inner">Marketing systems</span></span>
+        <span class="h1-mask"><span class="h1-inner">that run themselves</span></span>
+        <span class="h1-mask"><span class="h1-inner">&mdash; built right.</span></span>
+      </h1>
+      <p class="hero-sub">GoHighLevel, WordPress, ClickFunnels &mdash; complete funnels, CRM migrations, automation and tracking. One expert for your entire stack.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-lime wa-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.8 1h.01a7.94 7.94 0 0 0 5.6-13.58zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 5.6 3.09zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.31-.1-.44.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 6 6 0 0 1-1.1-1.37c-.12-.2 0-.31.09-.41s.2-.23.3-.35a1.3 1.3 0 0 0 .2-.33.37.37 0 0 0 0-.35c0-.1-.44-1.06-.6-1.45s-.32-.33-.44-.34h-.38a.72.72 0 0 0-.52.24 2.2 2.2 0 0 0-.68 1.63 3.8 3.8 0 0 0 .8 2.03 8.75 8.75 0 0 0 3.35 2.96c.47.2.83.32 1.11.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94s.17-.86.12-.94-.18-.14-.38-.24z"/></svg>
+          WhatsApp me now
+        </a>
+        <a href="#work" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          See the work
+        </a>
+      </div>
+      <div class="trust">
+        <span class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="trust-sep"></span>
+        <span class="trust-txt">100+ builds delivered</span>
+        <span class="trust-sep"></span>
+        <span class="trust-txt">USA &middot; Canada &middot; UK</span>
+      </div>
+    </div>
+    <div class="hero-canvas-wrap">
+      <canvas id="hero-funnel" width="430" height="490"></canvas>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="mq-wrap"><div class="mq-track" id="mqTrack"></div></div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow anim">The gap most businesses miss</div>
+    <h2 class="anim">Great tools, <em>leaking revenue</em><br>until connected</h2>
+    <p class="lead anim">Disconnected platforms quietly kill leads, waste hours, and make every ad budget a guess.</p>
+    <div class="prob-grid">
+      <div class="prob-card tilt anim">
+        <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M12 2v6M12 22v-4M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6"/></svg></div>
+        <div class="prob-t">Leads vanish between systems</div>
+        <p class="prob-d">Enquiries scatter across inboxes and forms. By the time someone follows up, the prospect is gone.</p>
+      </div>
+      <div class="prob-card tilt anim" style="transition-delay:.08s">
+        <div class="p-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="prob-t">Hours lost to manual work</div>
+        <p class="prob-d">Copying contacts, resending emails, chasing bookings by hand &mdash; time that should be closing deals.</p>
+      </div>
+      <div class="prob-card tilt anim" style="transition-delay:.16s">
+        <div class="p-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg></div>
+        <div class="prob-t">Ad spend flying blind</div>
+        <p class="prob-d">Without clean attribution you can't tell what drives real revenue &mdash; so every decision is a guess.</p>
+      </div>
+    </div>
+    <div class="prob-footer anim">
+      <p>I turn that scattered stack into <em>one system that runs on its own.</em></p>
+      <a href="#funnel" class="btn btn-lime" style="flex-shrink:0">See how &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section class="funnel-sec" id="funnel">
+  <div class="wrap">
+    <div class="funnel-head">
+      <div class="eyebrow anim">The full system</div>
+      <h2 class="anim">Every stage built, connected <em>and automated</em></h2>
+      <p class="lead anim">Click any stage to explore what gets built. Particles flowing down are your leads converting in real time.</p>
+    </div>
+    <div class="funnel-layout">
+      <div class="stage-list anim" id="stageList"></div>
+      <div class="funnel-canvas-wrap">
+        <canvas id="funnel3d"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow anim">What I build</div>
+    <h2 class="anim">One expert for your <em>entire stack</em></h2>
+    <p class="lead anim">From a single automation to a full platform migration &mdash; built with precision.</p>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics-band" id="metBand">
+  <div class="metrics-inner" id="metInner"></div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow anim">Selected work</div>
+    <h2 class="anim">40 live builds, <em>real businesses</em></h2>
+    <p class="lead anim">A sample from 100+ sites, funnels and systems &mdash; every card links to the live project.</p>
+    <div class="work-grid" id="workGrid"></div>
+    <p class="anim" style="margin-top:1.1rem;font-size:.76rem;color:var(--dim)">Showing 40 of 100+ live projects &middot; Click any card to visit</p>
+  </div>
+</section>
+
+<!-- MIGRATION -->
+<section class="mig-sec" id="migration">
+  <div class="wrap">
+    <div class="eyebrow anim">CRM migration specialty</div>
+    <h2 class="anim">HubSpot &rarr; GHL, <em>rebuilt completely</em></h2>
+    <p class="lead anim">More than a contact export. The full operating logic, migrated and validated.</p>
+    <div class="mig-layout">
+      <div class="mig-sticky anim">
+        <div class="mig-big">A working system &mdash; not just moved data.</div>
+        <p class="mig-p">Every migration is mapped before transfer, rebuilt around GHL's logic and validated after import. Your team keeps its full history and processes &mdash; in a faster, more capable platform.</p>
+      </div>
+      <div class="mig-grid" id="migGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="eyebrow anim">How we work</div>
+    <h2 class="anim">Simple to start, <em>built to scale</em></h2>
+    <div class="process-list" id="processList"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--bg2)" id="testimonials">
+  <div class="wrap">
+    <div class="eyebrow anim">What clients say</div>
+    <h2 class="anim">The results <em>speak first</em></h2>
+    <div class="testi-grid" id="testiGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="wrap">
+    <div class="eyebrow anim" style="justify-content:center;display:flex">Good to know</div>
+    <h2 class="anim" style="text-align:center">Questions answered <em>before you ask</em></h2>
+    <div class="faq-inner" id="faqInner"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="wrap">
+    <div class="cta-box anim">
+      <div class="cta-glow"></div>
+      <canvas id="cta-canvas"></canvas>
+      <div class="eyebrow" style="justify-content:center">Let&rsquo;s build</div>
+      <h2>Tell me what you&rsquo;re <em>working on</em></h2>
+      <p class="lead">I reply personally, usually within hours. No pressure &mdash; just a real conversation about the fastest path to get your system running.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-lime wa-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.8 1h.01a7.94 7.94 0 0 0 5.6-13.58zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 5.6 3.09zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.31-.1-.44.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 6 6 0 0 1-1.1-1.37c-.12-.2 0-.31.09-.41s.2-.23.3-.35a1.3 1.3 0 0 0 .2-.33.37.37 0 0 0 0-.35c0-.1-.44-1.06-.6-1.45s-.32-.33-.44-.34h-.38a.72.72 0 0 0-.52.24 2.2 2.2 0 0 0-.68 1.63 3.8 3.8 0 0 0 .8 2.03 8.75 8.75 0 0 0 3.35 2.96c.47.2.83.32 1.11.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94s.17-.86.12-.94-.18-.14-.38-.24z"/></svg>
+          Message on WhatsApp
+        </a>
+        <a href="#" class="btn btn-ghost mail-link">
+          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          Send an email
+        </a>
+      </div>
+      <p class="cta-note">Based in Rawalpindi &middot; Working with clients worldwide</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-row">
+    <a href="#" class="logo"><span class="logo-mark">AE</span>Abdullah Ejaz</a>
+    <div class="foot-links">
+      <a href="#" class="wa-link">WhatsApp &middot; +92 316 5252359</a>
+      <a href="#" class="mail-link">abdullahejaz.tech2003@gmail.com</a>
+    </div>
+    <span class="foot-copy">&copy; 2025 Abdullah Ejaz</span>
+  </div>
+</footer>
+
+<a href="#" class="fab wa-link">
+  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.8 1h.01a7.94 7.94 0 0 0 5.6-13.58zM12.05 18.5a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 5.6 3.09zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.31-.1-.44.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 6 6 0 0 1-1.1-1.37c-.12-.2 0-.31.09-.41s.2-.23.3-.35a1.3 1.3 0 0 0 .2-.33.37.37 0 0 0 0-.35c0-.1-.44-1.06-.6-1.45s-.32-.33-.44-.34h-.38a.72.72 0 0 0-.52.24 2.2 2.2 0 0 0-.68 1.63 3.8 3.8 0 0 0 .8 2.03 8.75 8.75 0 0 0 3.35 2.96c.47.2.83.32 1.11.42.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94s.17-.86.12-.94-.18-.14-.38-.24z"/></svg>
+  Let&rsquo;s talk
+</a>
+
+<script>
+// ── LINKS ──
+const WA_NUM='923165252359', WA_MSG="Hi Abdullah, I saw your portfolio and I'd like to discuss a project:", MAIL='abdullahejaz.tech2003@gmail.com';
+const WA_LINK='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(WA_MSG);
+const MAIL_LINK='mailto:'+MAIL+'?subject='+encodeURIComponent('Project enquiry')+'&body='+encodeURIComponent("Hi Abdullah,\n\nI saw your portfolio and I'd like to discuss a project.\n\nWhat I'm working on:\n\nThanks,");
+document.querySelectorAll('.wa-link').forEach(a=>{a.href=WA_LINK;if(a.tagName==='A'){a.target='_blank';a.rel='noopener';}});
+document.querySelectorAll('.mail-link').forEach(a=>{a.href=MAIL_LINK;});
+
+// ── SCROLL PROGRESS ──
+const spbar=document.getElementById('spbar');
+window.addEventListener('scroll',()=>{spbar.style.width=((scrollY/(document.body.scrollHeight-innerHeight))*100)+'%';},{passive:true});
+
+// ── NAV ──
+const navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>navEl.classList.toggle('solid',scrollY>55),{passive:true});
+
+// ── CURSOR ──
+const crEl=document.getElementById('cr'),ringEl=document.getElementById('cr-ring');
+let cx=0,cy=0,rx=0,ry=0;
+if(crEl){
+  document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;crEl.style.left=cx+'px';crEl.style.top=cy+'px';});
+  (function rf(){rx+=(cx-rx)*.11;ry+=(cy-ry)*.11;ringEl.style.left=rx+'px';ringEl.style.top=ry+'px';requestAnimationFrame(rf);})();
+  document.querySelectorAll('a,button,.tilt,.si,.work-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cr-big'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cr-big'));
+  });
+}
+
+// ── HERO H1 REVEAL ──
+(function(){
+  const h=document.getElementById('mainH1');
+  if(!h)return;
+  setTimeout(()=>h.classList.add('h1-ready'),80);
+})();
+
+// ── SCROLL REVEAL (anim class) ──
+(function(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  // observe existing .anim elements
+  function observeAll(){document.querySelectorAll('.anim:not(.show)').forEach(el=>obs.observe(el));}
+  observeAll();
+  // re-observe after DOM updates
+  setTimeout(observeAll,200);
+  setTimeout(observeAll,600);
+})();
+
+// ── MARQUEE ──
+(function(){
+  const PLATS=['GoHighLevel','ClickFunnels 2.0','WordPress','HubSpot Migration','n8n Automation','Make / Zapier','Meta CAPI','Server-Side GTM','GA4 Tracking','Kajabi','Kartra','Wix','ActiveCampaign','Whop Integration'];
+  const t=document.getElementById('mqTrack');
+  if(!t)return;
+  const one=PLATS.map(p=>'<span class="mq-item">'+p+'</span>').join('');
+  t.innerHTML=one+one;
+})();
+
+// ── DATA ──
+const STAGES=[
+  {n:'01',label:'Awareness',title:'Traffic & Ad Tracking',desc:'Every visitor captured with pixel-perfect attribution — Meta CAPI, server-side GTM, GA4. Know exactly which ad drives which sale.',tags:['Meta CAPI','GA4','Server GTM','Google Ads'],col:'#b8ff4a'},
+  {n:'02',label:'Interest',title:'Landing Page & Opt-in',desc:'High-converting funnels on GHL, ClickFunnels or WordPress — mobile-first, A/B ready, wired to your CRM from day one.',tags:['GoHighLevel','ClickFunnels','WordPress','Elementor'],col:'#7ab0ff'},
+  {n:'03',label:'Consideration',title:'Lead Nurture Automation',desc:'Multi-step email + SMS sequences fire the moment a lead opts in. The system follows up 24/7, no manual work.',tags:['GHL Workflows','Email Sequences','SMS Triggers','n8n'],col:'#ff8adb'},
+  {n:'04',label:'Decision',title:'Sales Pipeline & CRM',desc:'Clean pipelines, deal tracking and stage-based automations — your team always knows the next move.',tags:['GHL CRM','HubSpot','Pipelines','Opportunities'],col:'#ffb84a'},
+  {n:'05',label:'Action',title:'Checkout & Conversion',desc:'Whop, Stripe or native GHL checkout integrated with your funnel — post-purchase flow triggered instantly.',tags:['Whop','Stripe','GHL Checkout','Order Forms'],col:'#a07aff'},
+  {n:'06',label:'Retention',title:'Onboarding & LTV Growth',desc:'Automated onboarding, course access, booking flows and upsell triggers keep customers engaged and spending more.',tags:['SimplyBook','Calendly','Kajabi','Upsell Flows'],col:'#7affd4'},
+];
+const SERVICES=[
+  {hot:true,badge:'Core specialty',title:'GHL Funnels & SaaS Mode',desc:'Full GoHighLevel buildouts — SaaS mode, sub-accounts, snapshots, funnels and native sites wired to your CRM.',icon:'<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M9 21h6"/>'},
+  {title:'Workflow Automation',desc:'Multi-step automations across GHL, HubSpot, n8n, Make & Zapier — nurture, onboard and follow up hands-off.',icon:'<path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>'},
+  {title:'HubSpot to GHL Migration',desc:'Complete CRM migration: contacts, history, emails, workflows, pipelines, opportunities and custom fields.',icon:'<path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/>'},
+  {title:'WordPress Development',desc:'Responsive sites, Elementor builds, landing pages, plugin integrations, performance tuning and launch support.',icon:'<path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11 4"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L13 20"/>'},
+  {title:'CRM & Booking Systems',desc:'Clean pipelines and calendar systems across GHL, HubSpot, ActiveCampaign & Keap — reminders built in.',icon:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>'},
+  {title:'Tracking & Attribution',desc:'Server-side GTM, Meta CAPI and GA4 — every lead and sale measured accurately across every channel.',icon:'<path d="M3 3v18h18"/><path d="M18 7l-5 5-3-3-4 4"/>'},
+];
+const METRICS=[
+  {val:100,suf:'+',lbl:'Funnels & systems delivered'},
+  {val:10,suf:'+',lbl:'Platforms mastered'},
+  {val:50,suf:'+',lbl:'Builds for one agency'},
+  {val:100,suf:'%',lbl:'Client satisfaction'},
+];
+const MIG=[
+  {t:'Contacts & activity',d:'Records, notes, activities, ownership, tags and lifecycle stages.'},
+  {t:'Custom data',d:'Contact fields, custom values, properties and GHL field mappings.'},
+  {t:'Emails & assets',d:'Templates, nurture content, forms, calendars and campaign assets.'},
+  {t:'Automations',d:'HubSpot workflows rebuilt as tested GHL triggers, conditions and actions.'},
+  {t:'Pipelines & deals',d:'Stages, deal data, routing, assignments and sales-process automation.'},
+  {t:'QA & handover',d:'Deduplication, field validation, workflow testing and team training.'},
+];
+const PROCESS=[
+  {n:'01',title:'We talk',desc:"Message me and tell me what you're working on. We pinpoint the goal and what's slowing you down.",tag:'1 conversation'},
+  {n:'02',title:'I map the plan',desc:'You get a clear blueprint — pages, workflows, pipelines and integrations laid out before anything is built.',tag:'Clear scope'},
+  {n:'03',title:'I build & test',desc:'Everything built and tested end-to-end across your chosen platforms so it works on day one.',tag:'Done-for-you'},
+  {n:'04',title:'You launch & grow',desc:"We go live together, then I stay available for tweaks, training and support as you scale.",tag:'Ongoing support'},
+];
+const TESTI=[
+  {q:'"He rebuilt our entire stack. No-shows dropped and we\'re booking more clients than ever."',name:'Sarah K.',role:'Med Spa Owner, Canada'},
+  {q:'"Our launch funnel converted over 18%. Everything just runs — I barely touch it."',name:'Marcus J.',role:'Course Creator, USA'},
+  {q:'"Nobody came close to his range. He connected tools we thought would never talk to each other."',name:'Tom R.',role:'Agency Owner, UK'},
+];
+const FAQS=[
+  ['Which platform is right for me?',"I'll recommend the best fit in our first chat. I build on GoHighLevel, ClickFunnels, WordPress, Wix, Kajabi and Kartra — you're never forced into the wrong tool."],
+  ['Can you move me from HubSpot?','Yes — HubSpot to GoHighLevel migration is a core specialty. I migrate contacts, activity, emails, pipelines, opportunities, custom fields and rebuild all your workflows inside GHL.'],
+  ['Do you only take full buildouts?','No. Full systems and single pieces both welcome — one automation, a tricky integration, a tracking fix, or a complete migration. Message me and we\'ll scope it.'],
+  ['How fast do you reply?','Usually within a few hours on WhatsApp. For project starts I can typically begin within a week of scoping.'],
+];
+const WORK=[
+  ["Tickblaze","Trading Tech · WordPress","https://tickblaze.com/"],["PropShopTrader","Trading Platform · WordPress","https://propshoptrader.com/"],
+  ["Hat Creek Training","Training · WordPress","https://www.hatcreektraining.com/"],["MI Furniture","Furniture · WordPress","https://mi-furniture.co.uk/"],
+  ["Hygrove Contracting","Construction · GHL","https://hygrovecontracting.com/"],["Crescent Park Plumbing","Home Services · GHL","https://www.crescentparkplumbing.com/home"],
+  ["Rutland Plumbing","Plumbing · GHL","https://rutlandplumbing.ca/home"],["Gennari Partners","Coaching · GHL","https://gennaripartners.com/home"],
+  ["Elevated Roofing","Roofing · GHL","https://elevatedroofingsolutions.ca/home"],["School of Threaded Arts","Education Funnel","https://schoolofthreadedarts.com/cksr"],
+  ["Hook Agency","Lead Gen Funnel","https://go.hookagency.com/get-more-leads"],["Vehicle Response Training","Safety Funnel","https://go.vehicleresponsetraining.com/safety-training-1473"],
+  ["Edge Electric","Electrical · GHL","https://edgeelectric.ca/"],["Jaybird Media","Production · GHL","https://jaybirdmedia.ca/"],
+  ["Mentoring w/ Mentees","Coaching Funnel","https://mentoringwiththementees.org/"],["Tattoo Trade School","Education Hub","https://tattootradeschool.com/"],
+  ["Move the Needle","Campaign Funnel","https://tattootradeschool.com/move-the-needle247943"],["Crash to Cash","Lead Gen · GHL","https://go.crashtocash.com/"],
+  ["ElevateMD","Health Funnel","https://link.elevatemd.com/emd-pro"],["Her Influence Academy","Masterclass Funnel","https://blueprint.herinfluenceacademy.com/"],
+  ["JC Formworks","Construction","https://jcformworks.ca/"],["Atmoserra","Business Website","https://www.atmoserra.ca/"],
+  ["Khurana Associates","Professional Services","https://khuranaassoc.ca/"],["Reflections Hall","Events & Venue","https://reflectionshall.ca/"],
+  ["Iron Forge","Industrial Services","https://ironforge.ca/"],["MHD Building","Construction","https://mhdbuilding.ca/"],
+  ["MWH Contracting","Contracting","https://www.mwhcontracting.ca/"],["Wyse Enterprise","Business Services","https://wyseenterprise.ca/"],
+  ["RoadQuest Driving","Driving School","https://roadquestdrivingacademy.com/"],["Hannah Fitness","Fitness & Coaching","https://www.hannahfitness.com/"],
+  ["Emria Contracting","Construction","https://emriacontracting.com/"],["Okanagan Shaped","Local Business","https://okanaganshaped.ca/"],
+  ["Silverwood Homes","Home Builder","https://silverwoodhomes.ca/"],["Rivers Edge Massage","Wellness","https://riversedgemassage.ca/"],
+  ["Arctic Snow","Snow Services","https://arcticsnow.ca/"],["J&J Construction","Construction","https://jandjconstruction.ca/"],
+  ["Vin Pearl Nail Spa","Beauty & Spa","https://vinpearlnailspa.com/"],["Mindful Money Coach","Financial Coaching","https://themindfulmoneycoach.com/"],
+  ["Emblazon Design","Business · Wix","https://www.emblazondesign.net/"],["Tessarand","Ecommerce · Shopify","https://tessarand.com/"],
+];
+
+// ── RENDER DOM ──
+const ARROW='<svg class="wc-arr" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>';
+
+// Stage list
+let activeStage=0;
+document.getElementById('stageList').innerHTML=STAGES.map((s,i)=>
+  '<div class="si'+(i===0?' active':'')+' anim" data-i="'+i+'" style="transition-delay:'+(i*0.06)+'s">'+
+  '<div class="si-num">'+s.n+' \u2014 '+s.label+'</div>'+
+  '<div class="si-title">'+s.title+'</div>'+
+  '<div class="si-desc">'+s.desc+'</div>'+
+  '<div class="si-tags">'+s.tags.map(t=>'<span class="si-tag">'+t+'</span>').join('')+'</div>'+
+  '</div>').join('');
+document.querySelectorAll('.si').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.si').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');activeStage=+el.dataset.i;
+  });
+});
+
+// Services
+document.getElementById('svcGrid').innerHTML=SERVICES.map((s,i)=>
+  '<div class="svc-card tilt anim'+(s.hot?' hot':'')+'" style="transition-delay:'+(i*0.07)+'s">'+
+  '<div class="svc-shine"></div>'+
+  (s.badge?'<div class="svc-badge">'+s.badge+'</div>':'')+
+  '<div class="svc-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5">'+s.icon+'</svg></div>'+
+  '<div class="svc-title">'+s.title+'</div>'+
+  '<p class="svc-desc">'+s.desc+'</p>'+
+  '<div class="svc-sweep"></div></div>').join('');
+
+// Metrics
+document.getElementById('metInner').innerHTML=METRICS.map((m,i)=>
+  '<div class="metric" style="'+(i===1?'border-right:none':'')+'">'+
+  '<div class="met-num" data-val="'+m.val+'"><span class="met-val">0</span><span class="met-suf">'+m.suf+'</span></div>'+
+  '<div class="met-lbl">'+m.lbl+'</div>'+
+  '<div class="met-bar"></div></div>').join('');
+// fix grid for 4 cols
+document.getElementById('metInner').style.gridTemplateColumns='repeat(4,1fr)';
+document.querySelectorAll('.metrics-inner .metric').forEach((m,i)=>{
+  if(i!==3)m.style.borderRight='1px solid rgba(255,255,255,0.04)';
+  else m.style.borderRight='none';
+});
+
+// Migration
+document.getElementById('migGrid').innerHTML=MIG.map((m,i)=>
+  '<div class="mig-item anim" style="transition-delay:'+(i*0.07)+'s"><b>'+m.t+'</b><span>'+m.d+'</span></div>').join('');
+
+// Process
+document.getElementById('processList').innerHTML=PROCESS.map((s,i)=>
+  '<div class="pi anim" style="transition-delay:'+(i*0.08)+'s">'+
+  '<div class="pi-n">'+s.n+'</div>'+
+  '<div><div class="pi-title">'+s.title+'</div><p class="pi-desc">'+s.desc+'</p></div>'+
+  '<span class="pi-tag">'+s.tag+'</span></div>').join('');
+
+// Testimonials
+document.getElementById('testiGrid').innerHTML=TESTI.map((t,i)=>
+  '<div class="testi-card tilt anim" style="transition-delay:'+(i*0.1)+'s">'+
+  '<div class="t-stars">\u2605\u2605\u2605\u2605\u2605</div>'+
+  '<div class="t-quote">'+t.q+'</div>'+
+  '<div class="t-person">'+
+  '<div class="t-av">'+t.name.split(' ').map(x=>x[0]).join('')+'</div>'+
+  '<div><div class="t-name">'+t.name+'</div><div class="t-role">'+t.role+'</div></div>'+
+  '</div></div>').join('');
+
+// Work grid
+document.getElementById('workGrid').innerHTML=WORK.map(([n,c,u],i)=>
+  '<a href="'+u+'" target="_blank" rel="noopener" class="work-card tilt anim" style="transition-delay:'+(i%8*0.04)+'s">'+
+  '<div class="wc-num">'+String(i+1).padStart(2,'0')+'</div>'+
+  '<div class="wc-name">'+n+ARROW+'</div>'+
+  '<div class="wc-cat">'+c+'</div></a>').join('');
+
+// FAQ
+document.getElementById('faqInner').innerHTML=FAQS.map((f,i)=>
+  '<div class="faq-item anim" style="transition-delay:'+(i*0.07)+'s">'+
+  '<button class="faq-q">'+f[0]+
+  '<span class="faq-ico"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>'+
+  '<div class="faq-body"><p>'+f[1]+'</p></div></div>').join('');
+
+// FAQ toggle
+document.getElementById('faqInner').addEventListener('click',e=>{
+  const q=e.target.closest('.faq-q');if(!q)return;
+  const item=q.parentElement,open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-body').style.maxHeight=null;});
+  if(!open){item.classList.add('open');const b=item.querySelector('.faq-body');b.style.maxHeight=b.scrollHeight+'px';}
+});
+
+// Re-run anim observer after render
+setTimeout(()=>{
+  const obs2=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs2.unobserve(e.target);}});
+  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.anim:not(.show)').forEach(el=>obs2.observe(el));
+},100);
+
+// ── METRICS COUNTER ──
+let metCounted=false;
+new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting&&!metCounted){
+    metCounted=true;
+    document.querySelectorAll('.met-num').forEach((el,i)=>{
+      const to=+el.dataset.val;
+      const bar=el.closest('.metric').querySelector('.met-bar');
+      setTimeout(()=>{
+        if(bar)bar.style.width='100%';
+        let cur=0;const step=Math.max(1,Math.round(to/50));
+        const iv=setInterval(()=>{cur=Math.min(cur+step,to);el.querySelector('.met-val').textContent=cur;if(cur>=to)clearInterval(iv);},22);
+      },i*130);
+    });
+  }
+},{threshold:.4}).observe(document.getElementById('metBand'));
+
+// ── 3D TILT ──
+document.querySelectorAll('.tilt').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect(),dx=(e.clientX-r.left-r.width/2)/(r.width/2),dy=(e.clientY-r.top-r.height/2)/(r.height/2);
+    card.style.transform='perspective(700px) rotateX('+((-dy)*5)+'deg) rotateY('+(dx*5)+'deg) translateY(-4px)';
+    const sh=card.querySelector('.svc-shine');
+    if(sh){const px=((e.clientX-r.left)/r.width*100)+'%',py=((e.clientY-r.top)/r.height*100)+'%';card.style.setProperty('--sx',px);card.style.setProperty('--sy',py);}
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+
+// ── HERO BACKGROUND CANVAS ──
+(function(){
+  const c=document.getElementById('bg-canvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let W,H,tick=0,pts=[];
+  let mX=-999,mY=-999;
+  document.addEventListener('mousemove',e=>{mX=e.clientX;mY=e.clientY;});
+  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;build();}
+  function build(){pts=[];const n=Math.min(55,Math.floor(W*H/15000));for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,s:Math.random()*1.3+.4});}
+  function draw(){
+    ctx.clearRect(0,0,W,H);tick++;
+    // scrolling grid
+    const gs=85,gA=.022+.008*Math.sin(tick*.012);
+    ctx.strokeStyle='rgba(184,255,74,'+gA+')';ctx.lineWidth=.5;
+    const ox=(tick*.14)%gs,oy=(tick*.07)%gs;
+    for(let x=-gs+ox;x<W+gs;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=-gs+oy;y<H+gs;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    // particles with mouse repulsion
+    for(const p of pts){
+      const dx=p.x-mX,dy=p.y-mY,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<110){const f=.35*(1-d/110);p.vx+=dx/d*f;p.vy+=dy/d*f;}
+      p.vx*=.97;p.vy*=.97;p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    }
+    // connections
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<125){ctx.strokeStyle='rgba(184,255,74,'+((.13*(1-d/125)).toFixed(3))+')';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+    }
+    // dots
+    for(const p of pts){ctx.fillStyle='rgba(184,255,74,.5)';ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,Math.PI*2);ctx.fill();}
+    requestAnimationFrame(draw);
+  }
+  resize();window.addEventListener('resize',resize);draw();
+})();
+
+// ── HERO MINI FUNNEL ──
+(function(){
+  const c=document.getElementById('hero-funnel');if(!c)return;
+  const ctx=c.getContext('2d'),W=c.width,H=c.height,N=6;
+  const COLS=['#b8ff4a','#7ab0ff','#ff8adb','#ffb84a','#a07aff','#7affd4'];
+  const LABS=['Traffic','Opt-in','Nurture','Pipeline','Convert','Retain'];
+  let tick=0,fps=[];
+  function band(i){
+    const topW=W*.8,botW=W*.1,topY=H*.05,botY=H*.88,tH=botY-topY;
+    const t0=i/N,t1=(i+1)/N,cx=W/2;
+    const w0=topW+(botW-topW)*t0,w1=topW+(botW-topW)*t1;
+    const y0=topY+tH*t0,y1=topY+tH*t1;
+    return{x1:cx-w0/2,x2:cx+w0/2,x3:cx+w1/2,x4:cx-w1/2,y0,y1,cx,midY:(y0+y1)/2,w0,w1};
+  }
+  function spawn(){const b=band(0);fps.push({x:b.x1+(b.x2-b.x1)*(.2+Math.random()*.6),y:b.y0,prog:0,sp:.003+Math.random()*.004,col:COLS[Math.floor(Math.random()*N)],life:1});}
+  function frame(){
+    ctx.clearRect(0,0,W,H);tick++;
+    if(tick%20===0)spawn();
+    for(let i=N-1;i>=0;i--){
+      const b=band(i),g=ctx.createLinearGradient(b.cx,b.y0,b.cx,b.y1);
+      g.addColorStop(0,COLS[i]+'28');g.addColorStop(1,COLS[i]+'0c');
+      ctx.beginPath();ctx.moveTo(b.x1,b.y0);ctx.lineTo(b.x2,b.y0);ctx.lineTo(b.x3,b.y1);ctx.lineTo(b.x4,b.y1);ctx.closePath();
+      ctx.fillStyle=g;ctx.fill();ctx.strokeStyle=COLS[i]+'44';ctx.lineWidth=1;ctx.stroke();
+      ctx.beginPath();ctx.ellipse(b.cx,b.y0,(b.x2-b.x1)/2,(b.x2-b.x1)*.07,0,0,Math.PI*2);
+      ctx.fillStyle=COLS[i]+'18';ctx.fill();ctx.strokeStyle=COLS[i]+'44';ctx.lineWidth=.8;ctx.stroke();
+      ctx.font='700 '+Math.max(9,Math.min(13,(b.y1-b.y0)*.3))+'px Plus Jakarta Sans,sans-serif';
+      ctx.fillStyle='rgba(236,239,248,.6)';ctx.textAlign='center';ctx.fillText(LABS[i],b.cx,b.midY+4);
+    }
+    fps=fps.filter(p=>p.life>.03);
+    for(const p of fps){
+      p.prog+=p.sp;if(p.prog>=1){p.life=0;continue;}
+      const si=Math.min(Math.floor(p.prog*N),N-1);
+      const b=band(si),lp=(p.prog*N)%1,curW=b.w0+(b.w1-b.w0)*lp,minX=b.cx-curW/2;
+      p.y=b.y0+(b.y1-b.y0)*lp;p.x=Math.max(minX+2,Math.min(minX+curW-2,p.x));
+      p.life=1-p.prog*.9;
+      ctx.beginPath();ctx.arc(p.x,p.y,2.2*(1-p.prog*.4),0,Math.PI*2);
+      ctx.fillStyle=p.col+Math.floor(p.life*220).toString(16).padStart(2,'0');ctx.fill();
+    }
+    const gb=band(N-1),pc=gb.cx,py=gb.y1+15,pr=.5+.5*Math.sin(tick*.1);
+    const pg=ctx.createRadialGradient(pc,py,0,pc,py,26+pr*5);
+    pg.addColorStop(0,'rgba(184,255,74,.38)');pg.addColorStop(1,'transparent');
+    ctx.fillStyle=pg;ctx.beginPath();ctx.ellipse(pc,py,26+pr*5,8+pr*2,0,0,Math.PI*2);ctx.fill();
+    ctx.font='700 9px Plus Jakarta Sans,sans-serif';ctx.fillStyle='rgba(184,255,74,.9)';ctx.textAlign='center';ctx.fillText('CONVERTED',pc,py+4);
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+// ── MAIN 3D FUNNEL ──
+(function(){
+  const c=document.getElementById('funnel3d');if(!c)return;
+  const ctx=c.getContext('2d');
+  let W,H,tick=0,hovIdx=-1,fps=[],floats=[];
+  function resize(){const r=c.parentElement.getBoundingClientRect();W=c.width=r.width;H=c.height=r.height;}
+  function band(i){
+    const N=STAGES.length,cx=W/2,topW=W*.76,botW=W*.13,topY=H*.04,botY=H*.9,tH=botY-topY;
+    const t0=i/N,t1=(i+1)/N;
+    const w0=topW+(botW-topW)*t0,w1=topW+(botW-topW)*t1;
+    const y0=topY+tH*t0,y1=topY+tH*t1;
+    return{x1:cx-w0/2,x2:cx+w0/2,x3:cx+w1/2,x4:cx-w1/2,y0,y1,cx,midY:(y0+y1)/2,w0,w1};
+  }
+  function spawnFP(){
+    const b=band(0);
+    fps.push({x:b.x1+(b.x2-b.x1)*(.15+Math.random()*.7),y:b.y0,prog:0,sp:.002+Math.random()*.0038,col:STAGES[Math.floor(Math.random()*STAGES.length)].col,life:1,trail:[]});
+  }
+  function spawnFloat(){
+    const b=band(Math.floor(Math.random()*STAGES.length));
+    floats.push({x:b.x1+(b.x2-b.x1)*Math.random(),y:b.midY,vy:-.35-Math.random()*.3,a:.6,col:STAGES[Math.floor(Math.random()*STAGES.length)].col,sz:1+Math.random()*1.4});
+  }
+  setInterval(()=>{
+    if(hovIdx<0){activeStage=(activeStage+1)%STAGES.length;document.querySelectorAll('.si').forEach((el,i)=>el.classList.toggle('active',i===activeStage));}
+  },2800);
+  function draw(){
+    ctx.clearRect(0,0,W,H);tick++;
+    if(tick%14===0)spawnFP();
+    if(tick%32===0)spawnFloat();
+    const N=STAGES.length;
+    // ambient glow
+    const ag=ctx.createRadialGradient(W/2,H*.38,0,W/2,H*.38,W*.55);
+    ag.addColorStop(0,'rgba(184,255,74,.025)');ag.addColorStop(1,'transparent');
+    ctx.fillStyle=ag;ctx.fillRect(0,0,W,H);
+    for(let i=N-1;i>=0;i--){
+      const b=band(i),col=STAGES[i].col,isA=(i===activeStage),isH=(i===hovIdx);
+      const pulse=isA?.5+.5*Math.sin(tick*.07):0;
+      const D=9;
+      // depth face
+      ctx.beginPath();ctx.moveTo(b.x2,b.y0);ctx.lineTo(b.x3,b.y1);ctx.lineTo(b.x3+D,b.y1+D*.5);ctx.lineTo(b.x2+D,b.y0+D*.5);ctx.closePath();
+      const dg=ctx.createLinearGradient(b.x2,b.y0,b.x3+D,b.y1);dg.addColorStop(0,col+'22');dg.addColorStop(1,col+'08');ctx.fillStyle=dg;ctx.fill();
+      // main face
+      ctx.beginPath();ctx.moveTo(b.x1,b.y0);ctx.lineTo(b.x2,b.y0);ctx.lineTo(b.x3,b.y1);ctx.lineTo(b.x4,b.y1);ctx.closePath();
+      const fg=ctx.createLinearGradient(b.cx,b.y0,b.cx,b.y1);
+      if(isA){fg.addColorStop(0,col+'4c');fg.addColorStop(1,col+'1a');}
+      else if(isH){fg.addColorStop(0,col+'2c');fg.addColorStop(1,col+'0e');}
+      else{fg.addColorStop(0,col+'16');fg.addColorStop(1,col+'06');}
+      ctx.fillStyle=fg;ctx.fill();
+      // border
+      ctx.beginPath();ctx.moveTo(b.x1,b.y0);ctx.lineTo(b.x2,b.y0);ctx.lineTo(b.x3,b.y1);ctx.lineTo(b.x4,b.y1);ctx.closePath();
+      ctx.strokeStyle=isA?col+'cc':isH?col+'66':col+'2a';ctx.lineWidth=isA?2:1;ctx.stroke();
+      // pulse glow on active
+      if(isA){
+        ctx.beginPath();ctx.moveTo(b.x1,b.y0);ctx.lineTo(b.x2,b.y0);ctx.lineTo(b.x3,b.y1);ctx.lineTo(b.x4,b.y1);ctx.closePath();
+        ctx.strokeStyle=col+Math.floor((pulse*.55+.08)*255).toString(16).padStart(2,'0');ctx.lineWidth=3+pulse*1.5;ctx.stroke();
+      }
+      // cap ellipse
+      const ew=(b.x2-b.x1)/2,eh=ew*.095;
+      ctx.beginPath();ctx.ellipse(b.cx,b.y0,ew,eh,0,0,Math.PI*2);
+      const eg=ctx.createRadialGradient(b.cx,b.y0,0,b.cx,b.y0,ew);
+      eg.addColorStop(0,isA?col+'55':col+'22');eg.addColorStop(1,'transparent');
+      ctx.fillStyle=eg;ctx.fill();ctx.strokeStyle=isA?col+'88':col+'2a';ctx.lineWidth=1;ctx.stroke();
+      // labels
+      const bh=b.y1-b.y0;
+      ctx.save();ctx.textAlign='center';
+      const ns=Math.max(8,Math.min(11,bh*.18)),ts=Math.max(9,Math.min(14,bh*.26));
+      ctx.font='700 '+ns+'px Plus Jakarta Sans,sans-serif';
+      ctx.fillStyle=isA?col+'ee':col+(isH?'88':'55');
+      ctx.fillText(STAGES[i].label,b.cx,b.midY-ts*.55);
+      ctx.font='700 '+ts+'px Plus Jakarta Sans,sans-serif';
+      ctx.fillStyle=isA?'#eceff8':isH?'rgba(236,239,248,.7)':'rgba(236,239,248,.38)';
+      const words=STAGES[i].title.split(' '),mw=(b.w0+b.w1)/2*.82;
+      let line='',lines=[];
+      for(const w of words){const t=line?line+' '+w:w;if(ctx.measureText(t).width>mw&&line){lines.push(line);line=w;}else line=t;}
+      lines.push(line);
+      const lh=ts*1.22,sy=b.midY+ts*.2-(lines.length-1)*lh/2;
+      lines.forEach((l,li)=>ctx.fillText(l,b.cx,sy+li*lh));
+      ctx.restore();
+    }
+    // flow particles with trails
+    fps=fps.filter(p=>p.life>.02);
+    for(const p of fps){
+      p.trail.push({x:p.x,y:p.y});if(p.trail.length>7)p.trail.shift();
+      p.prog+=p.sp;if(p.prog>=1){p.life=0;continue;}
+      const si=Math.min(Math.floor(p.prog*N),N-1);
+      const b=band(si),lp=(p.prog*N)%1,curW=b.w0+(b.w1-b.w0)*lp,minX=b.cx-curW/2;
+      p.y=b.y0+(b.y1-b.y0)*lp;p.x=Math.max(minX+2,Math.min(minX+curW-2,p.x));p.life=1-p.prog*.85;
+      // trail
+      for(let k=0;k<p.trail.length-1;k++){
+        const ta=(k/p.trail.length)*p.life*.45;
+        ctx.strokeStyle=p.col+Math.floor(ta*255).toString(16).padStart(2,'0');
+        ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(p.trail[k].x,p.trail[k].y);ctx.lineTo(p.trail[k+1].x,p.trail[k+1].y);ctx.stroke();
+      }
+      const sz=2.6*(1-p.prog*.35);
+      ctx.beginPath();ctx.arc(p.x,p.y,sz,0,Math.PI*2);ctx.fillStyle=p.col+Math.floor(p.life*.88*255).toString(16).padStart(2,'0');ctx.fill();
+      ctx.beginPath();ctx.arc(p.x,p.y,sz*2,0,Math.PI*2);ctx.fillStyle=p.col+Math.floor(p.life*.14*255).toString(16).padStart(2,'0');ctx.fill();
+    }
+    // floating ambient
+    floats=floats.filter(p=>p.a>.02);
+    for(const p of floats){p.y+=p.vy;p.a-=.007;ctx.beginPath();ctx.arc(p.x,p.y,p.sz,0,Math.PI*2);ctx.fillStyle=p.col+Math.floor(p.a*255).toString(16).padStart(2,'0');ctx.fill();}
+    // bottom pool
+    const lb=band(N-1),pc=lb.cx,py=lb.y1+18,pr=.5+.5*Math.sin(tick*.09);
+    const pg=ctx.createRadialGradient(pc,py,0,pc,py,34+pr*8);
+    pg.addColorStop(0,'rgba(184,255,74,.38)');pg.addColorStop(.5,'rgba(184,255,74,.1)');pg.addColorStop(1,'transparent');
+    ctx.fillStyle=pg;ctx.beginPath();ctx.ellipse(pc,py,34+pr*8,10+pr*2.5,0,0,Math.PI*2);ctx.fill();
+    ctx.font='800 10px Plus Jakarta Sans,sans-serif';ctx.fillStyle='rgba(184,255,74,.92)';ctx.textAlign='center';ctx.fillText('CONVERTED',pc,py+4);
+    requestAnimationFrame(draw);
+  }
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+    hovIdx=-1;
+    for(let i=0;i<STAGES.length;i++){
+      const b=band(i);
+      if(my>=b.y0&&my<=b.y1){const t=(my-b.y0)/(b.y1-b.y0),lx=b.x1+(b.x4-b.x1)*t,rx=b.x2+(b.x3-b.x2)*t;if(mx>=lx&&mx<=rx){hovIdx=i;break;}}
+    }
+    c.style.cursor=hovIdx>=0?'pointer':'default';
+  });
+  c.addEventListener('click',()=>{
+    if(hovIdx>=0){activeStage=hovIdx;document.querySelectorAll('.si').forEach((el,i)=>el.classList.toggle('active',i===activeStage));document.querySelectorAll('.si')[activeStage]?.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  });
+  c.addEventListener('mouseleave',()=>{hovIdx=-1;c.style.cursor='default';});
+  resize();window.addEventListener('resize',resize);draw();
+})();
+
+// ── CTA CANVAS ──
+(function(){
+  const c=document.getElementById('cta-canvas');if(!c)return;
+  const ctx=c.getContext('2d');
+  let W,H,tick=0,pts=[];
+  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;pts=[];for(let i=0;i<20;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15});}
+  const ORBS=[{rx:170,ry:52,sp:.009,ph:0,col:'#b8ff4a',a:.14,lw:1.4},{rx:235,ry:70,sp:.006,ph:1.3,col:'#7ab0ff',a:.09,lw:1},{rx:300,ry:88,sp:.0035,ph:2.6,col:'#b8ff4a',a:.06,lw:.8}];
+  function draw(){
+    ctx.clearRect(0,0,W,H);tick++;
+    const cx=W/2,cy=H/2;
+    for(const o of ORBS){
+      const ang=tick*o.sp+o.ph;
+      ctx.save();ctx.translate(cx,cy);ctx.rotate(ang*.28);
+      ctx.beginPath();ctx.ellipse(0,0,o.rx,o.ry,ang,0,Math.PI*2);
+      ctx.strokeStyle=o.col+Math.floor(o.a*(0.5+0.5*Math.sin(tick*.04))*255).toString(16).padStart(2,'0');
+      ctx.lineWidth=o.lw;ctx.stroke();ctx.restore();
+      const px=cx+Math.cos(ang)*o.rx*.88,py=cy+Math.sin(ang)*o.ry;
+      ctx.beginPath();ctx.arc(px,py,2.2,0,Math.PI*2);ctx.fillStyle=o.col+'bb';ctx.fill();
+    }
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,1.1,0,Math.PI*2);ctx.fillStyle='rgba(184,255,74,.22)';ctx.fill();}
+    requestAnimationFrame(draw);
+  }
+  resize();window.addEventListener('resize',()=>{resize();});draw();
+})();
+</script>
+</body>
+</html>
