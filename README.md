@@ -1,12 +1,5 @@
-# Abdullah Ejaz Portfolio — V2
+# Portfolio V3
 
-Upload all of these items to the root of the GitHub repository:
+Upload index.html, styles.css, script.js and the assets folder together to the root of your existing GitHub repository. Replace files with the same names; do not delete unrelated files. GitHub Pages: main branch, / (root).
 
-- `index.html`
-- `styles.css`
-- `script.js`
-- the complete `assets` folder
-
-In **Settings → Pages**, keep the publishing source set to `main` and `/ (root)`.
-
-This build includes a new editorial layout, Abdullah's portrait, interactive canvas-based 3D particle scenes, scroll reveals, mouse parallax, responsive mobile layouts, selected project links, WhatsApp and email actions.
+All 40 projects from the original portfolio are included with search, category filters and external website links. Project artwork is typographic, not a screenshot of the destination. The site requires no build tools. Fonts load from Google Fonts with local fallbacks.

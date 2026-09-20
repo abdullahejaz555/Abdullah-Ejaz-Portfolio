@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <div class="noise"></div><div class="progress" id="progress"></div>
   <div class="cursor-dot"></div><div class="cursor-ring"></div>
   <nav class="nav">
     <a class="brand" href="#top"><span>AE</span><b>ABDULLAH<br>EJAZ</b></a>
-    <div class="nav-links"><a href="#about">About</a><a href="#services">Expertise</a><a href="#work">Work</a><a href="#experience">Experience</a></div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu +</button><div class="nav-links" id="nav-links"><a href="#about">About</a><a href="#services">Expertise</a><a href="#work">Work</a><a href="#experience">Experience</a></div>
     <a class="pill magnetic" href="#contact">Start a project <i>↗</i></a>
   </nav>
 
@@ -53,7 +53,7 @@
     </section>
 
     <section class="expertise" id="services">
-      <header class="section-head"><div><span>02</span><p>WHAT I DO</p></div><h2 class="split">DESIGN FLEX.<br><em>ENGINEERING DEPTH.</em></h2></header>
+      <header class="section-head"><div><span>02</span><p>WHAT I DO</p></div><h2 class="split">DESIGNED TO CONVERT.<br><em>BUILT TO CONNECT.</em></h2></header>
       <div class="service-list">
         <article class="service"><span>01</span><h3>High-converting<br>web experiences</h3><p>Custom WordPress, GoHighLevel and ClickFunnels builds designed around real offers—not templates.</p><b>Web design / Development / Funnels</b><i>↗</i></article>
         <article class="service"><span>02</span><h3>Automation that<br>runs the business</h3><p>Lead nurture, booking, onboarding and internal workflows across GHL, HubSpot, n8n, Make and Zapier.</p><b>CRM / Workflows / Integrations</b><i>↗</i></article>
@@ -64,15 +64,16 @@
 
     <section class="work" id="work">
       <header class="section-head light"><div><span>03</span><p>SELECTED WORK</p></div><h2 class="split">SYSTEMS WITH<br><em>REAL-WORLD IMPACT.</em></h2></header>
-      <div class="projects" id="projects"></div>
-      <a class="all-work magnetic" href="mailto:abdullahejaz.tech2003@gmail.com?subject=Portfolio%20request">View the complete portfolio <span>↗</span></a>
+      <p class="work-intro">Explore all 40 websites and funnels from my portfolio. Filter by platform or search by business name.</p>
+<div class="work-tools"><div class="filters" role="group" aria-label="Filter projects"><button class="active" data-filter="All" aria-pressed="true">All projects</button><button data-filter="WordPress" aria-pressed="false">WordPress</button><button data-filter="GHL" aria-pressed="false">GoHighLevel</button><button data-filter="Funnel" aria-pressed="false">Funnels</button><button data-filter="Other" aria-pressed="false">Other websites</button></div><label class="search-label">Search projects<input id="project-search" type="search" placeholder="Search by name or category"></label></div><p id="project-count" role="status" aria-live="polite"></p><div class="projects" id="projects"></div>
+      
     </section>
 
     <section class="numbers">
-      <div><b data-count="100">0</b><span>+</span><p>Funnels, sites & systems</p></div>
+      <div><b data-count="100">100</b><span>+</span><p>Funnels, sites & systems</p></div>
       <div><b data-count="10">0</b><span>+</span><p>Platforms mastered</p></div>
-      <div><b data-count="3">0</b><span></span><p>Continents served</p></div>
-      <div><b data-count="100">0</b><span>%</span><p>Ownership mentality</p></div>
+      <div><b data-count="40">40</b><span></span><p>Projects to explore</p></div>
+      <div><b>01</b><span></span><p>Connected system</p></div>
     </section>
 
     <section class="experience" id="experience">
@@ -98,6 +99,6 @@
       <footer><span>© 2026 Abdullah Ejaz</span><span>Rawalpindi, Pakistan · Worldwide</span><a href="#top">Back to top ↑</a></footer>
     </section>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
