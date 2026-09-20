@@ -1,12 +1,12 @@
-# Abdullah Ejaz Portfolio
+# Abdullah Ejaz Portfolio — V2
 
-This package is ready for GitHub Pages.
+Upload all of these items to the root of the GitHub repository:
 
-## Upload
+- `index.html`
+- `styles.css`
+- `script.js`
+- the complete `assets` folder
 
-1. Open the `Abdullah-Ejaz-Portfolio` repository on GitHub.
-2. Replace the existing files with `index.html` and `cinematic.css` from this package.
-3. Commit the changes to the branch currently used by GitHub Pages (normally `main`).
-4. Wait one or two minutes and refresh the live portfolio.
+In **Settings → Pages**, keep the publishing source set to `main` and `/ (root)`.
 
-The website is self-contained apart from Google Fonts. All project links, contact details, animations, mobile styles, SEO title and portfolio content are included.
+This build includes a new editorial layout, Abdullah's portrait, interactive canvas-based 3D particle scenes, scroll reveals, mouse parallax, responsive mobile layouts, selected project links, WhatsApp and email actions.
